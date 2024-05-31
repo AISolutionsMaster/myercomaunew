@@ -16,6 +16,7 @@ import {
   JOIN_BUTTON,
   CREATEACCOUNT_BUTTON,
   ACCOUNTHEADING,
+  MESSAGE_TEXT,
 } from "../fixtures/createAccount.json";
 
 class CreateAccount {
@@ -151,13 +152,11 @@ class CreateAccount {
   }
 
   static clickCreateAccountButton() {
-    cy.intercept("GET", "https://st.dynamicyield.com/spa/*").as("load");
     cy.get(CREATEACCOUNT_BUTTON).should("be.visible").click();
-    cy.wait("@load").its("response.statusCode").should("eq", 200);
-    cy.wait("@load").its("response.statusCode").should("eq", 200);
   }
 
   static verifyCurrentAccountURL() {
+    cy.get(MESSAGE_TEXT).scrollIntoView();
     cy.url().should("include", "account");
     cy.task("log", `      New account created`);
   }

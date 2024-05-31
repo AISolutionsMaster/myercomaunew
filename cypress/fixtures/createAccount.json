@@ -15,5 +15,7 @@
   "ADDRESS_ERROR": "#address-error-text",
   "JOIN_BUTTON": "button.MuiButton-containedPrimary",
   "CREATEACCOUNT_BUTTON": "button[id=\"create-account\"]",
-  "ACCOUNTHEADING": "#accountheading"
+  "ACCOUNTHEADING": "#accountheading",
+  "MESSAGE_TEXT": "#messageText",
+  "JOIN_HINT": "[data-automation=\"join-hint\"]"
 }

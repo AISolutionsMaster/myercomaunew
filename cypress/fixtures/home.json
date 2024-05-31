@@ -1,3 +1,4 @@
 {
-  "HEADER_ACCOUNT": "button[data-automation=\"header-account\"]"
+  "HEADER_ACCOUNT": "button[data-automation=\"header-account\"]",
+  "JOIN_HINT": "[data-automation=\"join-hint\"]"
 }
