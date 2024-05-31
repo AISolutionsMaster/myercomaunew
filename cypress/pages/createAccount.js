@@ -22,8 +22,7 @@ class CreateAccount {
   static checkEmailFieldVisibility() {
     cy.get(EMAIL_INPUT).should("be.visible");
     cy.get(JOIN_BUTTON).should("be.visible");
-    cy.logToReport('New account created');        
-
+    cy.logToReport("New account created");
   }
 
   static checkEmailErrorMessage(email_error_message) {
@@ -68,15 +67,22 @@ class CreateAccount {
   static checkErrorMessages(field, expectedErrorMessage) {
     switch (field) {
       case "FirstName":
-        cy.get(FIRSTNAME_ERROR).invoke('text').then((actualErrorMessage) => {
-      if (actualErrorMessage.includes(expectedErrorMessage)) {
-        cy.log('The error message is correct.');
-      } else {
-        cy.log(`Reason of failure: The object FIRSTNAME_ERROR exists but contains a different message.`);
-        cy.log(`Actual message: ${actualErrorMessage}`);
-        cy.log(`Expected message: ${expectedErrorMessage}`);
-        throw new Error(`Actual message: ${actualErrorMessage}, Expected message: ${expectedErrorMessage}`);
-      }});
+        cy.get(FIRSTNAME_ERROR)
+          .invoke("text")
+          .then((actualErrorMessage) => {
+            if (actualErrorMessage.includes(expectedErrorMessage)) {
+              cy.log("The error message is correct.");
+            } else {
+              cy.log(
+                `Reason of failure: The object FIRSTNAME_ERROR exists but contains a different message.`
+              );
+              cy.log(`Actual message: ${actualErrorMessage}`);
+              cy.log(`Expected message: ${expectedErrorMessage}`);
+              throw new Error(
+                `Actual message: ${actualErrorMessage}, Expected message: ${expectedErrorMessage}`
+              );
+            }
+          });
         break;
       case "LastName":
         cy.get(LASTNAME_ERROR).and("contain.text", expectedErrorMessage);
@@ -145,22 +151,15 @@ class CreateAccount {
   }
 
   static clickCreateAccountButton() {
+    cy.intercept("GET", "https://st.dynamicyield.com/spa/*").as("load");
     cy.get(CREATEACCOUNT_BUTTON).should("be.visible").click();
+    cy.wait("@load").its("response.statusCode").should("eq", 200);
+    cy.wait("@load").its("response.statusCode").should("eq", 200);
   }
 
   static verifyCurrentAccountURL() {
-    cy.intercept("GET", "https://st.dynamicyield.com/spa/*").as("load");
-
-    cy.wait("@load")
-      .its("response.statusCode")
-      .should("eq", 200);
-    cy.wait("@load")
-      .its("response.statusCode")
-      .should("eq", 200);
-
-      cy.url().should("include", "account");
-    cy.task('log', `      New account created`)
-
+    cy.url().should("include", "account");
+    cy.task("log", `      New account created`);
   }
 
   static verifyAccountHeadingMessage(account_heading_message) {
