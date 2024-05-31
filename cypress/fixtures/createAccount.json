@@ -1,0 +1,19 @@
+{
+  "EMAIL_INPUT": "#email",
+  "EMAIL_ERROR": "#email-error-text",
+  "PASSWORD_INPUT": "input[id=\"password\"]",
+  "PASSWORD_ERROR": "#password-error-text",
+  "FIRSTNAME_INPUT": "input[id=\"first-name\"]",
+  "FIRSTNAME_ERROR": "#first-name-error-text",
+  "LASTNAME_INPUT": "input[id=\"last-name\"]",
+  "LASTNAME_ERROR": "#last-name-error-text",
+  "MOBILEPHONE_INPUT": "input[id=\"mobile-phone\"]",
+  "MOBILEPHONE_ERROR": "#mobile-phone-error-text",
+  "DATEOFBIRTH_INPUT": "input[id=\"date-of-birth\"]",
+  "DATEOFBIRTH_ERROR": "#date-of-birth-error-text",
+  "ADDRESS_INPUT": "input[id=\"address\"]",
+  "ADDRESS_ERROR": "#address-error-text",
+  "JOIN_BUTTON": "button.MuiButton-containedPrimary",
+  "CREATEACCOUNT_BUTTON": "button[id=\"create-account\"]",
+  "ACCOUNTHEADING": "#accountheading"
+}
