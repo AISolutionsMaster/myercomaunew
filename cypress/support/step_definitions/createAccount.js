@@ -4,6 +4,10 @@ import Home from "../../pages/Home.js";
 import { faker } from "@faker-js/faker";
 
 Given("User open the home page", () => {
+  cy.task(
+    "log",
+    "\n\n    Running scenario: " + window.testState.currentScenario.name
+  );
   Home.visit();
 });
 

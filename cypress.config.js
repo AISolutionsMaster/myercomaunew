@@ -19,21 +19,20 @@ module.exports = defineConfig({
     html: true,
     json: true,
     quite: false,
-    debug: true
+    debug: true,
   },
   e2e: {
     setupNodeEvents(on, config) {
       initPlugin(on, config);
       require("cypress-mochawesome-reporter/plugin")(on);
-      
-      on("file:preprocessor", cucumber());
-      on('task', {
-        log(message) {
-          console.log(message);
-          return null;
-        }
-      });
 
+      on("file:preprocessor", cucumber());
+      on("task", {
+        log(message) {
+          console.log("        " + message);
+          return null;
+        },
+      });
       // implement node event listeners here
     },
     baseUrl: "https://www.myer.com.au",

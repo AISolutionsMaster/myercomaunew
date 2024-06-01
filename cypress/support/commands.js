@@ -10,10 +10,10 @@
 //
 //
 
-Cypress.Commands.add('logToReport', (message) => {
-  cy.task('log', "    " + message);
-  cy.log("    " + message);
-  cy.addTestContext("    " + message);
+Cypress.Commands.add("logToReport", (message) => {
+  cy.task("log", "    " + message);
+  //cy.log("    " + message);
+  //cy.addTestContext("    " + message);
 });
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
