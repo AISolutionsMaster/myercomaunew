@@ -3,3 +3,6 @@ cypress/screenshots
 cypress/reports
 cypress/results
 cypress-mochawesome-reporter.log
+cypress-errors.txt
+cypress-log.txt
+cypress-log.txt.bk

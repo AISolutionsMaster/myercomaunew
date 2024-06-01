@@ -17,7 +17,7 @@ Feature: Open Create New Account
                 And User input last name with "Bui"
                 And User input mobile number with "0474482806"
                 And User input Date of Birth with "01011991"
-                And User input Address with "78 McPhersons Road, BUNDALONG VIC 3730"
+                And User input Address with "78 McPhersons Road, BUNDALONG VIC  3730"
                 And User press Create Account button
                 Then User should see access to the Account page
 
@@ -59,12 +59,12 @@ Feature: Open Create New Account
                 Then User should see the error message for "<ErrorField>" with text "<ErrorMessage>"
                 Examples:
                         | Description                     | Password   | FirstName | LastName | MobileNumber | DOB      | Address                                | ErrorField  | ErrorMessage                                  |
-                        | FirstName is empty              | Hello1234@ |           | bui      | 0474482806   | 01011991 | 78 McPhersons Road, BUNDALONG VIC 3730 | FirstName   | Please enter a valid name                     |
-                        | LastName is empty               | Hello1234@ | Thai      |          | 0474482806   | 01011991 | 78 McPhersons Road, BUNDALONG VIC 3730 | LastName    | Please enter a valid name                     |
-                        | MobilePhone is empty            | Hello1234@ | Thai      | bui      |              | 01011991 | 78 McPhersons Road, BUNDALONG VIC 3730 | MobilePhone | Please enter a valid Australian mobile number |
-                        | MobilePhone is incorrect format | Hello1234@ | Thai      | bui      | 04744828     | 01011991 | 78 McPhersons Road, BUNDALONG VIC 3730 | MobilePhone | Please enter a valid Australian mobile number |
-                        | DateOfBirth is empty            | Hello1234@ | Thai      | bui      | 0474482806   |          | 78 McPhersons Road, BUNDALONG VIC 3730 | DateOfBirth | Please enter a valid birthday                 |
-                        | DateOfBirth is incorrect        | Hello1234@ | Thai      | bui      | 0474482806   | 0101199  | 78 McPhersons Road, BUNDALONG VIC 3730 | DateOfBirth | Please enter a valid birthday                 |
+                        | FirstName is empty              | Hello1234@ |           | bui      | 0474482806   | 01011991 | 78 McPhersons Road, BUNDALONG VIC  3730 | FirstName   | Please enter a valid name                     |
+                        | LastName is empty               | Hello1234@ | Thai      |          | 0474482806   | 01011991 | 78 McPhersons Road, BUNDALONG VIC  3730 | LastName    | Please enter a valid name                     |
+                        | MobilePhone is empty            | Hello1234@ | Thai      | bui      |              | 01011991 | 78 McPhersons Road, BUNDALONG VIC  3730 | MobilePhone | Please enter a valid Australian mobile number |
+                        | MobilePhone is incorrect format | Hello1234@ | Thai      | bui      | 04744828     | 01011991 | 78 McPhersons Road, BUNDALONG VIC  3730 | MobilePhone | Please enter a valid Australian mobile number |
+                        | DateOfBirth is empty            | Hello1234@ | Thai      | bui      | 0474482806   |          | 78 McPhersons Road, BUNDALONG VIC  3730 | DateOfBirth | Please enter a valid birthday                 |
+                        | DateOfBirth is incorrect        | Hello1234@ | Thai      | bui      | 0474482806   | 0101199  | 78 McPhersons Road, BUNDALONG VIC  3730 | DateOfBirth | Please enter a valid birthday                 |
                         | Address is empty                | Hello1234@ | Thai      | bui      | 0474482806   | 01011991 |                                        | Address     | Please enter a valid address                  |
         @high @smoke
         Scenario: Verify create new account page

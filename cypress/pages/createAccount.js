@@ -18,6 +18,7 @@ import {
   ACCOUNTHEADING,
   MESSAGE_TEXT,
 } from "../fixtures/createAccount.json";
+const moment = require("moment");
 
 class CreateAccount {
   static checkEmailFieldVisibility() {
@@ -107,6 +108,7 @@ class CreateAccount {
       cy.get(FIRSTNAME_INPUT).should("be.visible").clear(); // Clear if empty
     } else {
       cy.get(FIRSTNAME_INPUT).should("be.visible").type(firstName); // Type if not empty
+      cy.get(FIRSTNAME_INPUT).invoke("val").should("include", firstName);
     }
   }
 
@@ -115,6 +117,7 @@ class CreateAccount {
       cy.get(LASTNAME_INPUT).should("be.visible").clear(); // Clear if empty
     } else {
       cy.get(LASTNAME_INPUT).should("be.visible").type(lastName); // Type if not empty
+      cy.get(LASTNAME_INPUT).invoke("val").should("include", lastName);
     }
   }
 
@@ -123,6 +126,7 @@ class CreateAccount {
       cy.get(MOBILEPHONE_INPUT).should("be.visible").clear();
     } else {
       cy.get(MOBILEPHONE_INPUT).should("be.visible").type(mobilePhone);
+      cy.get(MOBILEPHONE_INPUT).invoke("val").should("include", mobilePhone);
     }
   }
 
@@ -131,6 +135,9 @@ class CreateAccount {
       cy.get(DATEOFBIRTH_INPUT).should("be.visible").clear();
     } else {
       cy.get(DATEOFBIRTH_INPUT).should("be.visible").type(dateOfBirth);
+      cy.get(DATEOFBIRTH_INPUT)
+        .invoke("val")
+        .should("eq", moment(dateOfBirth, "DDMMYYYY").format("DD/MM/YYYY"));
     }
   }
 
@@ -144,6 +151,10 @@ class CreateAccount {
         .then(() => {
           cy.get("ul.MuiList-root.MuiList-padding div:first").click();
         });
+      cy.get(ADDRESS_INPUT)
+        .invoke("val")
+        .should("include", "78 McPhersons Road");
+      cy.get(CREATEACCOUNT_BUTTON).scrollIntoView();
     }
   }
 
@@ -156,6 +167,7 @@ class CreateAccount {
   }
 
   static verifyCurrentAccountURL() {
+    cy.get(CREATEACCOUNT_BUTTON).scrollIntoView();
     cy.get(MESSAGE_TEXT).scrollIntoView();
     cy.url().should("include", "account");
     cy.task("log", `      New account created`);

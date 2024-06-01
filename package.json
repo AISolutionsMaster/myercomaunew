@@ -10,7 +10,8 @@
     "cy:regression": "cypress run --browser chrome -e TAGS=\"@regression and not @development\"",
     "cy:electron:smoke": "cypress run --browser electron -e TAGS=\"@smoke and not @development and not @noprod\"",
     "cy:electron:regression": "cypress run --browser electron -e TAGS=\"@regression and not @development\"",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cy:run-100-times": "node run-cypress.js"
   },
   "keywords": [
     "BDD",
@@ -29,5 +30,8 @@
     "cypress": "^13.8.1",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-mochawesome-reporter": "^3.8.2"
+  },
+  "dependencies": {
+    "moment": "^2.30.1"
   }
 }
