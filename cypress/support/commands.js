@@ -11,8 +11,8 @@
 //
 import "./commands";
 
-Cypress.Commands.add("logToReport", (message) => {
-  cy.task("log", "    " + message);
+Cypress.Commands.add("logPass", (message) => {
+  cy.task("log", "  \x1b[32m✔\x1b[0m " + message);
 });
 
 // -- This is a parent command --

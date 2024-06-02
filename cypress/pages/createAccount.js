@@ -22,37 +22,37 @@ import {
 class CreateAccount {
   static checkEmailFieldVisibility() {
     cy.get(EMAIL_INPUT).should("be.visible");
-    cy.logToReport(`Email field is visible`);
+    cy.logPass(`Email field is visible`);
     cy.get(JOIN_BUTTON).should("be.visible");
-    cy.logToReport(`Join button is visible`);
+    cy.logPass(`Join button is visible`);
   }
 
   static checkEmailErrorMessage(email_error_message) {
     cy.get(EMAIL_ERROR).should("be.visible").contains(email_error_message);
-    cy.logToReport(`Email error message is "${email_error_message}"`);
+    cy.logPass(`Email error message is "${email_error_message}"`);
   }
 
   static checkPasswordErrorMessage(password_error_message) {
     cy.get(PASSWORD_ERROR)
       .should("be.visible")
       .contains(password_error_message);
-    cy.logToReport(`Password error message is "${password_error_message}"`);
+    cy.logPass(`Password error message is "${password_error_message}"`);
   }
   static checkOtherFieldsInvisibility() {
     cy.get(PASSWORD_INPUT).should("not.exist");
-    cy.logToReport(`Password field is not shown`);
+    cy.logPass(`Password field is not shown`);
 
     cy.get(FIRSTNAME_INPUT).should("not.exist");
-    cy.logToReport(`First Name field is not shown`);
+    cy.logPass(`First Name field is not shown`);
 
     cy.get(LASTNAME_INPUT).should("not.exist");
-    cy.logToReport(`Last Name field is not shown`);
+    cy.logPass(`Last Name field is not shown`);
     cy.get(MOBILEPHONE_INPUT).should("not.exist");
-    cy.logToReport(`Mobile Phone field is not shown`);
+    cy.logPass(`Mobile Phone field is not shown`);
     cy.get(DATEOFBIRTH_INPUT).should("not.exist");
-    cy.logToReport(`Date of Birth field is not shown`);
+    cy.logPass(`Date of Birth field is not shown`);
     cy.get(ADDRESS_INPUT).should("not.exist");
-    cy.logToReport(`Address field is not shown`);
+    cy.logPass(`Address field is not shown`);
   }
 
   static checkOtherFieldsVisibility() {
@@ -67,20 +67,20 @@ class CreateAccount {
   static fillEmail(email) {
     if (email === "") {
       cy.get(EMAIL_INPUT).should("be.visible").clear();
-      cy.logToReport(`Email is filled with blank`);
+      cy.logPass(`Email is filled with blank`);
     } else {
       cy.get(EMAIL_INPUT).should("be.visible").type(email);
-      cy.logToReport(`Email is filled with "${email}"`);
+      cy.logPass(`Email is filled with "${email}"`);
     }
   }
 
   static fillPassword(password) {
     if (password === "") {
       cy.get(PASSWORD_INPUT).should("be.visible").clear();
-      cy.logToReport(`Password is filled with blank`);
+      cy.logPass(`Password is filled with blank`);
     } else {
       cy.get(PASSWORD_INPUT).should("be.visible").type(password);
-      cy.logToReport(`Password is filled with "${password}"`);
+      cy.logPass(`Password is filled with "${password}"`);
     }
   }
 
@@ -144,40 +144,40 @@ class CreateAccount {
   static fillFirstName(firstName) {
     if (firstName === "") {
       cy.get(FIRSTNAME_INPUT).should("be.visible").clear(); // Clear if empty
-      cy.logToReport(`First Name is filled with blank`);
+      cy.logPass(`First Name is filled with blank`);
     } else {
       cy.get(FIRSTNAME_INPUT).should("be.visible").type(firstName); // Type if not empty
       cy.get(FIRSTNAME_INPUT).invoke("val").should("include", firstName);
-      cy.logToReport(`First Name is filled with "${firstName}"`);
+      cy.logPass(`First Name is filled with "${firstName}"`);
     }
   }
 
   static fillLastName(lastName) {
     if (lastName === "") {
       cy.get(LASTNAME_INPUT).should("be.visible").clear(); // Clear if empty
-      cy.logToReport(`Last Name is filled with blank`);
+      cy.logPass(`Last Name is filled with blank`);
     } else {
       cy.get(LASTNAME_INPUT).should("be.visible").type(lastName); // Type if not empty
       cy.get(LASTNAME_INPUT).invoke("val").should("include", lastName);
-      cy.logToReport(`Last Name is filled with "${lastName}"`);
+      cy.logPass(`Last Name is filled with "${lastName}"`);
     }
   }
 
   static fillMobilePhone(mobilePhone) {
     if (mobilePhone === "") {
       cy.get(MOBILEPHONE_INPUT).should("be.visible").clear();
-      cy.logToReport(`Mobile Phone is filled with blank`);
+      cy.logPass(`Mobile Phone is filled with blank`);
     } else {
       cy.get(MOBILEPHONE_INPUT).should("be.visible").type(mobilePhone);
       cy.get(MOBILEPHONE_INPUT).invoke("val").should("include", mobilePhone);
-      cy.logToReport(`Mobile Phone is filled with "${mobilePhone}"`);
+      cy.logPass(`Mobile Phone is filled with "${mobilePhone}"`);
     }
   }
 
   static fillDateOfBirth(dateOfBirth) {
     if (dateOfBirth === "") {
       cy.get(DATEOFBIRTH_INPUT).should("be.visible").clear();
-      cy.logToReport(`Date of birth is filled with blank`);
+      cy.logPass(`Date of birth is filled with blank`);
     } else {
       cy.get(DATEOFBIRTH_INPUT).should("be.visible").type(dateOfBirth);
       cy.get(DATEOFBIRTH_INPUT)
@@ -190,7 +190,7 @@ class CreateAccount {
             "/" +
             dateOfBirth.slice(4)
         );
-      cy.logToReport(
+      cy.logPass(
         `Date of birth is filled with "` +
           dateOfBirth.slice(0, 2) +
           "/" +
@@ -205,7 +205,7 @@ class CreateAccount {
   static fillAddress(address) {
     if (address === "") {
       cy.get(ADDRESS_INPUT).should("be.visible").clear();
-      cy.logToReport(`Address is filled with blank`);
+      cy.logPass(`Address is filled with blank`);
     } else {
       cy.get(ADDRESS_INPUT).should("be.visible").type(address);
       cy.get("ul.MuiList-root.MuiList-padding")
@@ -217,26 +217,26 @@ class CreateAccount {
         .invoke("val")
         .should("include", "78 McPhersons Road");
       cy.get(CREATEACCOUNT_BUTTON).scrollIntoView();
-      cy.logToReport(`Address is filled with "${address}"`);
+      cy.logPass(`Address is filled with "${address}"`);
     }
   }
 
   static clickJoinButton() {
     cy.get(JOIN_BUTTON).click();
-    cy.logToReport(`Join button clicked`);
+    cy.logPass(`Join button clicked`);
   }
 
   static clickCreateAccountButton() {
     cy.get(CREATEACCOUNT_BUTTON).should("be.visible").click();
-    cy.logToReport(`Create account button clicked`);
+    cy.logPass(`Create account button clicked`);
     cy.screenshot({ clip: { x: 20, y: 20, width: 500, height: 1500 } });
   }
 
   static verifyCurrentAccountURL() {
     cy.get(SHOP_BUTTON);
     cy.url({ timeout: 30000 }).should("include", "account");
-    cy.logToReport(`Account page opened`);
-    cy.logToReport(`New account created`);
+    cy.logPass(`Account page opened`);
+    cy.logPass(`New account created`);
   }
 
   static verifyAccountHeadingMessage(account_heading_message) {
