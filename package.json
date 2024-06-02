@@ -6,7 +6,7 @@
   "scripts": {
     "cy:open": "cypress open --browser chrome --e2e",
     "cy:dev": "cypress run --browser chrome -e TAGS=\"@dev\"",
-    "cy:smoke": "cypress run -e TAGS=\"@smoke and not @development and not @noprod\"",
+    "cy:smoke": "cypress run --browser chrome -e TAGS=\"@smoke and not @development and not @noprod\"",
     "cy:regression": "cypress run --browser chrome -e TAGS=\"@regression and not @development\"",
     "cy:electron:smoke": "cypress run --browser electron -e TAGS=\"@smoke and not @development and not @noprod\"",
     "cy:electron:regression": "cypress run --browser electron -e TAGS=\"@regression and not @development\"",
@@ -29,7 +29,8 @@
     "@frsource/cypress-plugin-visual-regression-diff": "^3.3.10",
     "cypress": "^13.8.1",
     "cypress-cucumber-preprocessor": "^4.3.1",
-    "cypress-mochawesome-reporter": "^3.8.2"
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "puppeteer": "^22.10.0"
   },
   "dependencies": {
     "cypress-plugin-steps": "^1.1.1"

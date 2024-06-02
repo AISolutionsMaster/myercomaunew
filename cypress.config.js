@@ -33,6 +33,7 @@ module.exports = defineConfig({
           return null;
         },
       });
+
       // implement node event listeners here
     },
     baseUrl: "https://www.myer.com.au",

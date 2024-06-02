@@ -23,5 +23,9 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   // failing the test
   return false;
 });
+Cypress.Screenshot.defaults({
+  capture: "fullPage",
+  scale: true,
+});
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

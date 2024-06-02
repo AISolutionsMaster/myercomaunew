@@ -11,7 +11,10 @@ fs.writeFileSync(logFile, "");
 fs.writeFileSync(errorFile, "");
 
 for (let i = 1; i <= runCount; i++) {
-  console.log(`Running Cypress test iteration ${i}`);
+  console.log(
+    `Running Cypress test iteration ${i} at ${new Date().toLocaleString()}`
+  );
+
   try {
     const output = execSync("npm run cy:smoke", { stdio: "pipe" });
     fs.appendFileSync(

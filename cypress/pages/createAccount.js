@@ -229,6 +229,7 @@ class CreateAccount {
   static clickCreateAccountButton() {
     cy.get(CREATEACCOUNT_BUTTON).should("be.visible").click();
     cy.logToReport(`Create account button clicked`);
+    cy.screenshot({ clip: { x: 20, y: 20, width: 500, height: 1500 } });
   }
 
   static verifyCurrentAccountURL() {
