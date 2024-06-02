@@ -22,7 +22,7 @@ for (let i = 1; i <= runCount; i++) {
     failureCount++;
     fs.appendFileSync(
       errorFile,
-      `Error during iteration ${i}:\n${error.stderr.toString()}\n${output.toString()}\n`
+      `Error during iteration ${i}:\n${error.stderr.toString()}\n`
     );
   }
 }

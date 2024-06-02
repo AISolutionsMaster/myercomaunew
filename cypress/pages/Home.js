@@ -3,7 +3,7 @@ import { HEADER_ACCOUNT, JOIN_HINT } from "../fixtures/home.json";
 class Home {
   //visit the page
   static visit() {
-    cy.visit("/");
+    cy.visit("/").log();
     cy.logToReport(`Home page opened`);
   }
 

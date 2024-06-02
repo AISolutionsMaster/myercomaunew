@@ -66,7 +66,7 @@ Feature: Test create new account
                         | DateOfBirth is empty should show error message           | Hello1234@ | Thai      | bui      | 0474482806   |          | 78 McPhersons Road, BUNDALONG VIC  3730 | DateOfBirth | Please enter a valid birthday                 |
                         | DateOfBirth is incorrect should show error message       | Hello1234@ | Thai      | bui      | 0474482806   | 0101199  | 78 McPhersons Road, BUNDALONG VIC  3730 | DateOfBirth | Please enter a valid birthday                 |
                         | Address is empty should show error message               | Hello1234@ | Thai      | bui      | 0474482806   | 01011991 |                                        | Address     | Please enter a valid address                  |
-        @high @smoke
+        @high
         Scenario: Verify create new account page
                 Then User see the email address, Join button, already member message and create account link
                 And User can not see other fields e.g. password, FirstNames etc.

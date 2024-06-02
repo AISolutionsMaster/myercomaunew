@@ -17,5 +17,6 @@
   "CREATEACCOUNT_BUTTON": "button[id=\"create-account\"]",
   "ACCOUNTHEADING": "#accountheading",
   "MESSAGE_TEXT": "#messageText",
-  "JOIN_HINT": "[data-automation=\"join-hint\"]"
+  "JOIN_HINT": "[data-automation=\"join-hint\"]",
+  "SHOP_BUTTON": "button[data-automation=\"account-continue-shopping-button\"]"
 }

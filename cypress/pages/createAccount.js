@@ -16,7 +16,7 @@ import {
   JOIN_BUTTON,
   CREATEACCOUNT_BUTTON,
   ACCOUNTHEADING,
-  MESSAGE_TEXT,
+  SHOP_BUTTON,
 } from "../fixtures/createAccount.json";
 
 class CreateAccount {
@@ -67,20 +67,20 @@ class CreateAccount {
   static fillEmail(email) {
     if (email === "") {
       cy.get(EMAIL_INPUT).should("be.visible").clear();
-      cy.logToReport(`Email field is filled with blank`);
+      cy.logToReport(`Email is filled with blank`);
     } else {
       cy.get(EMAIL_INPUT).should("be.visible").type(email);
-      cy.logToReport(`Email field is filled with "${email}"`);
+      cy.logToReport(`Email is filled with "${email}"`);
     }
   }
 
   static fillPassword(password) {
     if (password === "") {
       cy.get(PASSWORD_INPUT).should("be.visible").clear();
-      cy.logToReport(`Password field is filled with blank`);
+      cy.logToReport(`Password is filled with blank`);
     } else {
       cy.get(PASSWORD_INPUT).should("be.visible").type(password);
-      cy.logToReport(`Password field is filled with "${password}"`);
+      cy.logToReport(`Password is filled with "${password}"`);
     }
   }
 
@@ -108,7 +108,7 @@ class CreateAccount {
         cy.get(LASTNAME_ERROR).and("contain.text", expectedErrorMessage);
         cy.task(
           "log",
-          `Last Name error message is showed with "${expectedErrorMessage}"`
+          `Last Name error message is shown with "${expectedErrorMessage}"`
         );
 
         break;
@@ -116,7 +116,7 @@ class CreateAccount {
         cy.get(MOBILEPHONE_ERROR).and("contain.text", expectedErrorMessage);
         cy.task(
           "log",
-          `Mobile Phone error message is showed with "${expectedErrorMessage}"`
+          `Mobile Phone error message is shown with "${expectedErrorMessage}"`
         );
 
         break;
@@ -124,7 +124,7 @@ class CreateAccount {
         cy.get(DATEOFBIRTH_ERROR).and("contain.text", expectedErrorMessage);
         cy.task(
           "log",
-          `Date of Birth error message is showed with "${expectedErrorMessage}"`
+          `Date of Birth error message is shown with "${expectedErrorMessage}"`
         );
 
         break;
@@ -132,7 +132,7 @@ class CreateAccount {
         cy.get(ADDRESS_ERROR).and("contain.text", expectedErrorMessage);
         cy.task(
           "log",
-          `Address error message is showed with "${expectedErrorMessage}"`
+          `Address error message is shown with "${expectedErrorMessage}"`
         );
 
         break;
@@ -144,40 +144,40 @@ class CreateAccount {
   static fillFirstName(firstName) {
     if (firstName === "") {
       cy.get(FIRSTNAME_INPUT).should("be.visible").clear(); // Clear if empty
-      cy.logToReport(`First Name field is filled with blank`);
+      cy.logToReport(`First Name is filled with blank`);
     } else {
       cy.get(FIRSTNAME_INPUT).should("be.visible").type(firstName); // Type if not empty
       cy.get(FIRSTNAME_INPUT).invoke("val").should("include", firstName);
-      cy.logToReport(`First Name field is filled with "${firstName}"`);
+      cy.logToReport(`First Name is filled with "${firstName}"`);
     }
   }
 
   static fillLastName(lastName) {
     if (lastName === "") {
       cy.get(LASTNAME_INPUT).should("be.visible").clear(); // Clear if empty
-      cy.logToReport(`Last Name field is filled with blank`);
+      cy.logToReport(`Last Name is filled with blank`);
     } else {
       cy.get(LASTNAME_INPUT).should("be.visible").type(lastName); // Type if not empty
       cy.get(LASTNAME_INPUT).invoke("val").should("include", lastName);
-      cy.logToReport(`Last Name field is filled with "${lastName}"`);
+      cy.logToReport(`Last Name is filled with "${lastName}"`);
     }
   }
 
   static fillMobilePhone(mobilePhone) {
     if (mobilePhone === "") {
       cy.get(MOBILEPHONE_INPUT).should("be.visible").clear();
-      cy.logToReport(`Mobile Phone field is filled with blank`);
+      cy.logToReport(`Mobile Phone is filled with blank`);
     } else {
       cy.get(MOBILEPHONE_INPUT).should("be.visible").type(mobilePhone);
       cy.get(MOBILEPHONE_INPUT).invoke("val").should("include", mobilePhone);
-      cy.logToReport(`Mobile Phone field is filled with "${mobilePhone}"`);
+      cy.logToReport(`Mobile Phone is filled with "${mobilePhone}"`);
     }
   }
 
   static fillDateOfBirth(dateOfBirth) {
     if (dateOfBirth === "") {
       cy.get(DATEOFBIRTH_INPUT).should("be.visible").clear();
-      cy.logToReport(`Date of birth field is filled with blank`);
+      cy.logToReport(`Date of birth is filled with blank`);
     } else {
       cy.get(DATEOFBIRTH_INPUT).should("be.visible").type(dateOfBirth);
       cy.get(DATEOFBIRTH_INPUT)
@@ -191,7 +191,7 @@ class CreateAccount {
             dateOfBirth.slice(4)
         );
       cy.logToReport(
-        `Date of birth field is filled with "` +
+        `Date of birth is filled with "` +
           dateOfBirth.slice(0, 2) +
           "/" +
           dateOfBirth.slice(2, 4) +
@@ -205,7 +205,7 @@ class CreateAccount {
   static fillAddress(address) {
     if (address === "") {
       cy.get(ADDRESS_INPUT).should("be.visible").clear();
-      cy.logToReport(`Address field is filled with blank`);
+      cy.logToReport(`Address is filled with blank`);
     } else {
       cy.get(ADDRESS_INPUT).should("be.visible").type(address);
       cy.get("ul.MuiList-root.MuiList-padding")
@@ -217,22 +217,22 @@ class CreateAccount {
         .invoke("val")
         .should("include", "78 McPhersons Road");
       cy.get(CREATEACCOUNT_BUTTON).scrollIntoView();
-      cy.logToReport(`Address field is filled with "${address}"`);
+      cy.logToReport(`Address is filled with "${address}"`);
     }
   }
 
   static clickJoinButton() {
     cy.get(JOIN_BUTTON).click();
-    cy.logToReport(`Clicked joined button`);
+    cy.logToReport(`Join button clicked`);
   }
 
   static clickCreateAccountButton() {
     cy.get(CREATEACCOUNT_BUTTON).should("be.visible").click();
-    cy.logToReport(`Clicked create account button`);
+    cy.logToReport(`Create account button clicked`);
   }
 
   static verifyCurrentAccountURL() {
-    cy.get(CREATEACCOUNT_BUTTON).scrollIntoView();
+    cy.get(SHOP_BUTTON);
     cy.url({ timeout: 30000 }).should("include", "account");
     cy.logToReport(`Account page opened`);
     cy.logToReport(`New account created`);
