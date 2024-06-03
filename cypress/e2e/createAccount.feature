@@ -8,7 +8,7 @@ Feature: Test create new account
                 Given User open the home page
                 Given User click join button to access JOIN page
 
-        @notprod @low @now @smoke 
+        @notprod @low @now @smoke @dev
         Scenario: Test new account create
                 When User input new email - not existing in current system
                 And User press Join button
