@@ -36,7 +36,9 @@ When("User input email with {string}", (email) => {
 
 When("User input new email - not existing in current system", () => {
   const email = faker.internet.email();
-  CreateAccount.fillEmail(email);
+  CreateAccount.fillEmail(
+    (Math.floor(Math.random() * 10000) + 1).toString() + email
+  );
 });
 
 Then(
