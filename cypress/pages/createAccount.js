@@ -211,7 +211,9 @@ class CreateAccount {
       cy.get("ul.MuiList-root.MuiList-padding")
         .should("exist")
         .then(() => {
-          cy.get("ul.MuiList-root.MuiList-padding div:first").click();
+          cy.get("div.MuiListItem-button[tabindex='0']")
+            .contains("78 McPhersons Road, BUNDALONG VIC")
+            .click();
         });
       cy.get(ADDRESS_INPUT)
         .invoke("val")
@@ -227,6 +229,7 @@ class CreateAccount {
   }
 
   static clickCreateAccountButton() {
+    cy.screenshot({ clip: { x: 20, y: 20, width: 500, height: 1500 } });
     cy.get(CREATEACCOUNT_BUTTON).should("be.visible").click();
     cy.logPass(`Create account button clicked`);
     cy.screenshot({ clip: { x: 20, y: 20, width: 500, height: 1500 } });
