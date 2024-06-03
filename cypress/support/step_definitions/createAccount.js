@@ -19,6 +19,7 @@ Then(
   "User see the email address, Join button, already member message and create account link",
   () => {
     CreateAccount.checkEmailFieldVisibility();
+    CreateAccount.checkEmailErrorMessage("Please enter your email address");
   }
 );
 
